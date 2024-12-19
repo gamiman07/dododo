@@ -1,0 +1,22 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.본문구성 {
+    float:left;
+    padding: 2.5%;
+    outline: 1px solid black;
+}
+
+.동아리_결과물 {
+    margin: 2.5%;
+    outline: 2px solid black;
+    border-radius: 10px;
+}
+
+.결과물_로고 {
+    margin: 2.5%;
+    width: 45%;
+    float: left;
+}
