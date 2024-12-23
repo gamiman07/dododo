@@ -1,4 +1,3 @@
-// 로딩 화면 처리
 document.addEventListener("DOMContentLoaded", () => {
     const loadingScreen = document.getElementById("loading-screen");
     const nicknameInputScreen = document.getElementById("nickname-input-screen");
@@ -10,18 +9,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // 로컬 스토리지에서 닉네임 가져오기
     const savedNickname = localStorage.getItem("nickname");
 
-    if (savedNickname) {
-        // 닉네임이 이미 저장된 경우 바로 메인 페이지로 이동
-        nicknameSpan.textContent = savedNickname;
+    // 로딩 화면 표시 후 처리
+    setTimeout(() => {
         loadingScreen.style.display = "none";
-        mainPage.style.display = "block";
-    } else {
-        // 닉네임이 없는 경우 입력 화면 표시
-        setTimeout(() => {
-            loadingScreen.style.display = "none";
+
+        if (savedNickname) {
+            // 닉네임이 이미 저장된 경우 바로 메인 페이지로 이동
+            nicknameSpan.textContent = savedNickname;
+            mainPage.style.display = "block";
+        } else {
+            // 닉네임이 없는 경우 입력 화면 표시
             nicknameInputScreen.style.display = "block";
-        }, 2000); // 로딩 화면 2초 후 닉네임 입력 화면으로 전환
-    }
+        }
+    }, 2000); // 로딩 화면 2초 후 처리
 
     // 시작 버튼 클릭 이벤트
     startButton.addEventListener("click", () => {
