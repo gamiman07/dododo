@@ -3,197 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>학교 소개</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-        #loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        #loading-screen img {
-            width: 150px;
-            animation: wave 1s infinite;
-        }
-        #loading-bar {
-            width: 80%;
-            height: 10px;
-            background-color: #ddd;
-            margin: 1rem 0;
-            border-radius: 5px;
-            overflow: hidden;
-            position: relative;
-        }
-        #loading-bar div {
-            width: 0;
-            height: 100%;
-            background-color: #4CAF50;
-            animation: load 3s linear forwards;
-        }
-        #tmi {
-            font-size: 1rem;
-            color: #555;
-            margin-top: 1rem;
-        }
-        @keyframes wave {
-            0% { transform: rotate(0deg); }
-            50% { transform: rotate(20deg); }
-            100% { transform: rotate(0deg); }
-        }
-        @keyframes load {
-            0% { width: 0%; }
-            100% { width: 100%; }
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-        }
-        nav a {
-            color: white;
-            padding: 1rem;
-            text-decoration: none;
-        }
-        nav a:hover {
-            background-color: #575757;
-        }
-        main {
-            padding: 2rem;
-        }
-        section {
-            margin-bottom: 2rem;
-            padding: 1rem;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
-    <script>
-        const tmiList = [
-            "우리 학교는 1990년에 설립되었습니다.",
-            "학교 도서관에는 5만 권 이상의 책이 있습니다.",
-            "매년 100명 이상의 졸업생이 해외 대학에 진학합니다.",
-            "우리 학교의 교복은 친환경 소재로 제작됩니다.",
-            "교내 동아리 수는 50개를 넘습니다."
-        ];
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const tmiElement = document.getElementById('tmi');
-            const randomTmi = tmiList[Math.floor(Math.random() * tmiList.length)];
-            tmiElement.textContent = randomTmi;
-
-            setTimeout(function() {
-                document.getElementById('loading-screen').style.display = 'none';
-            }, 3000);
-        });
-    </script>
+    <title>로딩 화면</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- 로딩 화면 -->
     <div id="loading-screen">
-        <img src="d.png" alt="고양이" style="width: 500px;">
+        <img src="loading.gif" alt="로딩 중" id="loading-image">
         <div id="loading-bar">
-            <div></div>
+            <div id="loading-progress"></div>
         </div>
-        <p id="tmi"></p>
     </div>
 
-    <header>
-        <h1>우리 학교 소개</h1>
-    </header>
+    <!-- 닉네임 입력 화면 -->
+    <div id="nickname-input-screen" style="display:none;">
+        <h1>닉네임 입력</h1>
+        <input type="text" id="nickname-input" placeholder="닉네임을 입력하세요">
+        <button id="start-button">시작</button>
+    </div>
 
-    <nav>
-        <a href="#about">학교 소개</a>
-        <a href="#history">학교 연혁</a>
-        <a href="#vision">비전 및 목표</a>
-        <a href="#contact">문의</a>
-    </nav>
+    <!-- 메인 페이지 -->
+    <div id="main-page" style="display:none;">
+        <header id="main-header">
+            <h1>환영합니다!</h1>
+        </header>
+        <div id="profile-card">
+            <h2>프로필</h2>
+            <p>닉네임: <span id="nickname">없음</span></p>
+        </div>
+        <div id="navigation">
+            <h2>이동할 페이지</h2>
+            <button class="nav-button" id="fortune-page-button">🔮 오늘의 운세</button>
+            <button class="nav-button" id="html-info-page-button">📘 HTML이란?</button>
+        </div>
+    </div>
 
-    <main>
-        <section id="about">
-            <h2>학교 소개</h2>
-            <p>우리 학교는 최고의 교육 환경과 우수한 교사진을 자랑하며, 학생들이 창의성과 인성을 함양할 수 있도록 돕고 있습니다.</p>
-        </section>
-
-        <section id="history">
-            <h2>학교 연혁</h2>
-            <ul>
-                <li>1990년: 학교 설립</li>
-                <li>2000년: 신축 건물 완공</li>
-                <li>2015년: 디지털 교육 프로그램 도입</li>
-                <li>2020년: 전국 모범 학교 선정</li>
-            </ul>
-        </section>
-
-        <section id="vision">
-            <h2>비전 및 목표</h2>
-            <p>우리 학교는 창의적이고 윤리적인 글로벌 리더를 양성하기 위해 최선을 다하고 있습니다.</p>
-        </section>
-
-        <section id="contact">
-            <h2>문의</h2>
-            <p>주소: 서울특별시 예시구 예시로 123</p>
-            <p>전화: 02-123-4567</p>
-            <p>이메일: contact@example.com</p>
-        </section>
-
-        <section id="community">
-            <h2>커뮤니티</h2>
-            <form id="community-form">
-                <textarea id="post-content" placeholder="글을 작성하세요..." rows="4" style="width: 100%;"></textarea>
-                <button type="button" onclick="addPost()" style="margin-top: 1rem;">등록</button>
-            </form>
-            <div id="community-posts" style="margin-top: 2rem;">
-                <h3>커뮤니티 글</h3>
-                <ul id="posts-list" style="list-style-type: none; padding: 0;"></ul>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 우리 학교. 모든 권리 보유.</p>
-    </footer>
-
-    <script>
-        function addPost() {
-            const postContent = document.getElementById('post-content').value;
-            if (postContent.trim() === '') return;
-
-            const postsList = document.getElementById('posts-list');
-            const newPost = document.createElement('li');
-            newPost.textContent = postContent;
-            newPost.style.marginBottom = '1rem';
-            postsList.appendChild(newPost);
-
-            document.getElementById('post-content').value = '';
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

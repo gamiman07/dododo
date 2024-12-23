@@ -1,0 +1,103 @@
+/* style.css */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #74b9ff, #00cec9);
+    color: #fff;
+}
+
+#loading-screen, #nickname-input-screen, #main-page {
+    text-align: center;
+    width: 100%;
+}
+
+h1, h2 {
+    font-family: 'Segoe UI', sans-serif;
+    margin-bottom: 20px;
+}
+
+#loading-image {
+    width: 100px;
+    height: 100px;
+}
+
+#loading-bar {
+    width: 300px;
+    height: 20px;
+    background-color: #333;
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#loading-progress {
+    width: 0;
+    height: 100%;
+    background-color: #76c7c0;
+    animation: loading 3s linear forwards;
+}
+
+@keyframes loading {
+    100% {
+        width: 100%;
+    }
+}
+
+#nickname-input-screen input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 70%;
+    max-width: 300px;
+    font-size: 16px;
+}
+
+#nickname-input-screen button, .nav-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #00b894;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+#nickname-input-screen button:hover, .nav-button:hover {
+    background-color: #0984e3;
+    transform: scale(1.1);
+}
+
+#main-header {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#profile-card {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: inline-block;
+    text-align: left;
+}
+
+#navigation {
+    margin-top: 20px;
+}
+
+.nav-button {
+    display: block;
+    margin: 10px auto;
+    width: 70%;
+    max-width: 300px;
+    text-align: center;
+    font-size: 18px;
+}

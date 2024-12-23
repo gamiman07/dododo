@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 운세</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fffbea;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f39c12;
+            color: white;
+            padding: 20px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            color: white;
+            background-color: #f39c12;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #e67e22;
+        }
+
+        .fortune {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #f39c12;
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>오늘의 운세</h1>
+    </header>
+
+    <main>
+        <p>버튼을 클릭하여 오늘의 운세를 확인하세요!</p>
+        <button onclick="showFortune()">운세 확인</button>
+        <div class="fortune" id="fortune"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 학교 축제 프로젝트</p>
+    </footer>
+
+    <script>
+        function showFortune() {
+            const fortunes = [
+                "오늘은 행운의 날입니다!",
+                "조심하세요, 시험지가 날아올 수 있어요!",
+                "친구와의 우정이 더욱 깊어질 하루입니다!",
+                "맛있는 음식을 먹게 될 운명입니다!",
+                "작은 선물이 기다리고 있어요!"
+            ];
+            const randomIndex = Math.floor(Math.random() * fortunes.length);
+            document.getElementById('fortune').textContent = fortunes[randomIndex];
+        }
+    </script>
+</body>
+</html>
